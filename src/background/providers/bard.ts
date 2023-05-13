@@ -134,7 +134,7 @@ export class BARDProvider implements Provider {
       })
     }
 
-    params.onEvent({ type: 'DONE' })
+    params.onEvent({ type: 'done' })
     cleanup()
     return { cleanup }
   }
