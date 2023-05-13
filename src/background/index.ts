@@ -1,5 +1,6 @@
 import Browser from 'webextension-polyfill'
 import { getProviderConfigs, ProviderType } from '../config'
+import { BARDProvider } from './providers/bard'
 import { ChatGPTProvider, getChatGPTAccessToken, sendMessageFeedback } from './providers/chatgpt'
 import { OpenAIProvider } from './providers/openai'
 import { Provider } from './types'
@@ -13,7 +14,10 @@ async function generateAnswers(
   const providerConfigs = await getProviderConfigs()
 
   let provider: Provider
-  if (providerConfigs.provider === ProviderType.ChatGPT) {
+  if (providerConfigs.provider === ProviderType.BARD) {
+    // const token = await getBardAccessToken()
+    provider = new BARDProvider()
+  } else if (providerConfigs.provider === ProviderType.ChatGPT) {
     const token = await getChatGPTAccessToken()
     provider = new ChatGPTProvider(token)
   } else if (providerConfigs.provider === ProviderType.GPT3) {

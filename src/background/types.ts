@@ -20,3 +20,9 @@ export interface GenerateAnswerParams {
 export interface Provider {
   generateAnswer(params: GenerateAnswerParams): Promise<{ cleanup?: () => void }>
 }
+
+// export interface SendMessageParams {
+//   prompt: string
+//   onEvent: (event: Event) => void
+//   signal?: AbortSignal
+// }

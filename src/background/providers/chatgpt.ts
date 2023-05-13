@@ -1,6 +1,7 @@
 import ExpiryMap from 'expiry-map'
 import { v4 as uuidv4 } from 'uuid'
 import { fetchSSE } from '../fetch-sse'
+
 import { GenerateAnswerParams, Provider } from '../types'
 
 async function request(token: string, method: string, path: string, data?: unknown) {

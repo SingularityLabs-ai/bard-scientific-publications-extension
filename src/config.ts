@@ -7,10 +7,10 @@ export enum TriggerMode {
 }
 
 export const TRIGGER_MODE_TEXT = {
-  [TriggerMode.Always]: { title: 'Always', desc: 'SciGPT is queried on every search' },
+  [TriggerMode.Always]: { title: 'Always', desc: 'SciBard is queried on every search' },
   [TriggerMode.Manually]: {
     title: 'Manually',
-    desc: 'SciGPT is queried when you manually click a button',
+    desc: 'SciBard is queried when you manually click a button',
   },
 }
 
@@ -70,6 +70,7 @@ export async function updateUserConfig(updates: Partial<UserConfig>) {
 export enum ProviderType {
   ChatGPT = 'chatgpt',
   GPT3 = 'gpt3',
+  BARD = 'bard',
 }
 
 interface GPT3ProviderConfig {
@@ -80,18 +81,18 @@ interface GPT3ProviderConfig {
 export interface ProviderConfigs {
   provider: ProviderType
   configs: {
-    [ProviderType.GPT3]: GPT3ProviderConfig | undefined
+    [ProviderType.BARD]: GPT3ProviderConfig | undefined
   }
 }
 
 export async function getProviderConfigs(): Promise<ProviderConfigs> {
-  const { provider = ProviderType.ChatGPT } = await Browser.storage.local.get('provider')
-  const configKey = `provider:${ProviderType.GPT3}`
+  const { provider = ProviderType.BARD } = await Browser.storage.local.get('provider')
+  const configKey = `provider:${ProviderType.BARD}`
   const result = await Browser.storage.local.get(configKey)
   return {
     provider,
     configs: {
-      [ProviderType.GPT3]: result[configKey],
+      [ProviderType.BARD]: result[configKey],
     },
   }
 }

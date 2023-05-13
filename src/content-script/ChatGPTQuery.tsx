@@ -162,7 +162,7 @@ function ChatGPTQuery(props: Props) {
     return (
       <div className="markdown-body gpt-markdown" id="gpt-answer" dir="auto">
         <div className="gpt-header">
-          <span className="font-bold">SciGPT</span>
+          <span className="font-bold">SciBard</span>
           <span className="cursor-pointer leading-[0]" onClick={openOptionsPage}>
             <GearIcon size={14} />
           </span>
@@ -212,10 +212,7 @@ function ChatGPTQuery(props: Props) {
               placeholder="Tell Me More"
               id="question"
             />
-            <button
-              id="submit"
-              onClick={requeryHandler}
-            >
+            <button id="submit" onClick={requeryHandler}>
               ASK
             </button>
           </form>
