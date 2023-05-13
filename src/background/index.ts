@@ -16,7 +16,6 @@ async function generateAnswers(
 
   let provider: Provider
   if (providerConfigs.provider === ProviderType.BARD) {
-    // const token = await getBardAccessToken()
     provider = new BARDProvider()
   } else if (providerConfigs.provider === ProviderType.ChatGPT) {
     const token = await getChatGPTAccessToken()

@@ -74,17 +74,17 @@ export async function requeryMount(question: string, index: number) {
 }
 
 const siteRegex = new RegExp(Object.keys(config).join('|'))
-let siteName;
+let siteName
 try {
-   siteName = location.hostname.match(siteRegex)![0]
+  siteName = location.hostname.match(siteRegex)![0]
 } catch (error) {
-   siteName = location.pathname.match(siteRegex)![0]
+  siteName = location.pathname.match(siteRegex)![0]
 }
 const siteConfig = config[siteName]
 
 async function run() {
   const searchInput = getPossibleElementByQuerySelector<HTMLInputElement>(siteConfig.inputQuery)
-  console.debug('Try to Mount ChatGPT on', siteName)
+  console.debug('Try to Mount chat-gpt-container on', siteName)
 
   if (siteConfig.bodyQuery) {
     const bodyElement = getPossibleElementByQuerySelector(siteConfig.bodyQuery)
@@ -104,16 +104,6 @@ async function run() {
       mount(question + bodyInnerText, promptSource, siteConfig)
     }
   }
-
-  //const searchInput = getPossibleElementByQuerySelector<HTMLInputElement>(siteConfig.inputQuery)
-  //if (searchInput && searchInput.value) {
-  //  console.debug('Mount ChatGPT on', siteName)
-  //  const userConfig = await getUserConfig()
-  //  const searchValueWithLanguageOption =
-  //    userConfig.language === Language.Auto
-  //      ? searchInput.value
-  //      : `${searchInput.value}(in ${userConfig.language})`
-  //  mount(searchValueWithLanguageOption, siteConfig)
 }
 
 run()

@@ -15,15 +15,11 @@
 * Pubmed: "https://pubmed.ncbi.nlm.nih.gov/*"
 * IEEE: "https://ieeexplore.ieee.org/document/*"
 * Sciencedirect: "https://www.sciencedirect.com/science/article/*"
-* ACM: "https://dl.acm.org/doi/*"
 * Nature: "https://www.nature.com/articles/*"
 * Cell: "https://www.cell.com/*"
 * The Lancet: "https://www.thelancet.com/journals/*"
-* Journal of Allergy and Clinical Immunology: "https://www.jacionline.org/article/*"
 * Proceedings of the National Academy of Sciences (PNAS): "https://www.pnas.org/doi/*"
 * New England Journal of Medicine (NEJM): "https://www.nejm.org/doi/"
-* JAMA: The Journal of the American Medical Association: "https://jamanetwork.com/journals/jama/*"
-* Physical Review Letters (PRL): "https://journals.aps.org/prl/abstract/*"
 * Astrophysical Journal: "https://iopscience.iop.org/article/*"
 * ACS "https://pubs.acs.org/doi/*"
 * PLOS: "https://journals.plos.org/*"
@@ -58,6 +54,11 @@
 * Google Scholar: "https://scholar.google.com/*"
 
 (To be fixed:)
+
+* ACM: "https://dl.acm.org/doi/*"
+* Journal of Allergy and Clinical Immunology: "https://www.jacionline.org/article/*"
+* JAMA: The Journal of the American Medical Association: "https://jamanetwork.com/journals/jama/*"
+* Physical Review Letters (PRL): "https://journals.aps.org/prl/abstract/*"
 
 - Sciencemag: "https://www.sciencemag.org/doi/*"
 - Earth and Planetary Science Letters: https://www.journals.elsevier.com/earth-and-planetary-science-letters/

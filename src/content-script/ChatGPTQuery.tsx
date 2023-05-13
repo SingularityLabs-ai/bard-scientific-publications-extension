@@ -194,7 +194,7 @@ function ChatGPTQuery(props: Props) {
               }`}</div>
               {reError ? (
                 <p>
-                  Failed to load response from ChatGPT:
+                  Failed to load response from BARD:
                   <span className="break-all block">{reError}</span>
                 </p>
               ) : requestion.index < requestionList.length - 1 ? (
@@ -264,13 +264,13 @@ function ChatGPTQuery(props: Props) {
   if (error) {
     return (
       <p>
-        Failed to load response from ChatGPT:
+        Failed to load response from BARD:
         <span className="break-all block">{error}</span>
       </p>
     )
   }
 
-  return <p className="text-[#b6b8ba] animate-pulse">Waiting for ChatGPT summarize...</p>
+  return <p className="text-[#b6b8ba] animate-pulse">Waiting for BARD summarize...</p>
 }
 
 export default memo(ChatGPTQuery)
