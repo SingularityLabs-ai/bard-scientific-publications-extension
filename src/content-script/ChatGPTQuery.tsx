@@ -123,12 +123,22 @@ function ChatGPTQuery(props: Props) {
         questionIndex == 0
           ? answer?.messageId
           : requestionList[questionIndex - 1].answer?.messageId,
+      conversationContext:
+        questionIndex == 0
+          ? answer?.conversationContext
+          : requestionList[questionIndex - 1].answer?.conversationContext,
     })
     return () => {
       port.onMessage.removeListener(listener)
       port.disconnect()
     }
-  }, [requestionList, questionIndex, answer?.conversationId, answer?.messageId])
+  }, [
+    requestionList,
+    questionIndex,
+    answer?.conversationId,
+    answer?.messageId,
+    answer?.conversationContext,
+  ])
 
   // * Requery Handler Function
   const requeryHandler = useCallback(() => {

@@ -1,7 +1,7 @@
 import ExpiryMap from 'expiry-map'
 import { ofetch } from 'ofetch'
 
-import { GenerateAnswerParams, Provider } from '../types'
+import { ConversationContext, GenerateAnswerParams, Provider } from '../types'
 
 async function request(token: string, method: string, path: string, data?: unknown) {
   return fetch(`https://chat.openai.com/backend-api${path}`, {
@@ -47,6 +47,8 @@ export async function getBardAccessToken(): Promise<string> {
 }
 
 export class BARDProvider implements Provider {
+  private conversationContext?: ConversationContext
+
   constructor(private token: string) {
     this.token = token
   }
@@ -88,6 +90,7 @@ export class BARDProvider implements Provider {
         setConversationProperty(this.token, conversationId, { is_visible: false })
       }
     }
+    this.conversationContext = params.conversationContext
 
     if (!this.conversationContext) {
       this.conversationContext = {
@@ -96,6 +99,7 @@ export class BARDProvider implements Provider {
       }
     }
     const { requestParams, contextIds } = this.conversationContext
+    console.debug('request ids:', contextIds)
     const resp = await ofetch(
       'https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate',
       {
@@ -118,7 +122,7 @@ export class BARDProvider implements Provider {
     )
     const { text, ids } = await this.parseBartResponse(resp)
     console.debug('text:', text)
-    console.debug('ids:', ids)
+    console.debug('response ids:', ids)
     this.conversationContext.contextIds = ids
 
     if (text) {
@@ -127,9 +131,10 @@ export class BARDProvider implements Provider {
         type: 'answer',
         data: {
           text,
-          messageId: 'datamessage.id',
-          conversationId: 'dataconversation_id',
-          parentMessageId: 'dataparent_message_id',
+          // messageId: 'datamessage.id',
+          // conversationId: 'dataconversation_id',
+          // parentMessageId: 'dataparent_message_id',
+          conversationContext: this.conversationContext,
         },
       })
     }
