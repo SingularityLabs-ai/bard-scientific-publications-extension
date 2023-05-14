@@ -15,7 +15,7 @@ async function request(token: string, method: string, path: string, data?: unkno
 }
 
 export async function sendMessageFeedbackBard(data: unknown) {
-  console.log('TODO: Currently is is dummy, no feedback is actually sent')
+  console.log('TODO: Currently it is dummy, no feedback is actually sent')
   console.log('data:', data)
   // await request(token, 'POST', '/conversation/message_feedback', data);
 }
