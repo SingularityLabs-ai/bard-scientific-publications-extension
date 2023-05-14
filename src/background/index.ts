@@ -1,6 +1,6 @@
 import Browser from 'webextension-polyfill'
 import { getProviderConfigs, ProviderType } from '../config'
-import { BARDProvider } from './providers/bard'
+import { BARDProvider, sendMessageFeedbackBard } from './providers/bard'
 import { ChatGPTProvider, getChatGPTAccessToken, sendMessageFeedback } from './providers/chatgpt'
 import { OpenAIProvider } from './providers/openai'
 import { ConversationContext, Provider } from './types'
@@ -69,8 +69,13 @@ Browser.runtime.onConnect.addListener((port) => {
 
 Browser.runtime.onMessage.addListener(async (message) => {
   if (message.type === 'FEEDBACK') {
-    const token = await getChatGPTAccessToken()
-    await sendMessageFeedback(token, message.data)
+    const providerConfigs = await getProviderConfigs()
+    if (providerConfigs.provider === ProviderType.ChatGPT) {
+      const token = await getChatGPTAccessToken()
+      await sendMessageFeedback(token, message.data)
+    } else {
+      await sendMessageFeedbackBard(message.data)
+    }
   } else if (message.type === 'OPEN_OPTIONS_PAGE') {
     Browser.runtime.openOptionsPage()
   } else if (message.type === 'GET_ACCESS_TOKEN') {
