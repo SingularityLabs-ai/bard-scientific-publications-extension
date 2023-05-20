@@ -1,4 +1,4 @@
-# SciBard
+# SciGPT
 
 [link-chrome]: https://chrome.google.com/webstore/detail/scigpt/paahiifbajkfokamacmmaakejigmgoke?hl=en&authuser=0 'Chrome Web Store'
 
