@@ -16,7 +16,6 @@ import logo from '../logo.png'
 import { AppName, detectSystemColorScheme, getExtensionVersion } from '../utils'
 import AddNewPromptModal from './AddNewPromptModal'
 import PromptCard from './PromptCard'
-import ProviderSelect from './ProviderSelect'
 
 function OptionsPage(props: { theme: Theme; onThemeChange: (theme: Theme) => void }) {
   const [triggerMode, setTriggerMode] = useState<TriggerMode>(TriggerMode.Always)
@@ -185,10 +184,6 @@ function OptionsPage(props: { theme: Theme; onThemeChange: (theme: Theme) => voi
             )
           })}
         </Radio.Group>
-        <Text h3 className="mt-5 mb-0">
-          AI Provider
-        </Text>
-        <ProviderSelect />
         <Text h3 className="mt-8">
           Misc
         </Text>
