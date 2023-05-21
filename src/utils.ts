@@ -1,6 +1,8 @@
 import Browser from 'webextension-polyfill'
 import { Theme } from './config'
 
+export const AppName = 'SciBard'
+
 export function detectSystemColorScheme() {
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     return Theme.Dark

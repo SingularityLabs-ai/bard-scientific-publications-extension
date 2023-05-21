@@ -13,7 +13,7 @@ import {
   updateUserConfig,
 } from '../config'
 import logo from '../logo.png'
-import { detectSystemColorScheme, getExtensionVersion } from '../utils'
+import { AppName, detectSystemColorScheme, getExtensionVersion } from '../utils'
 import AddNewPromptModal from './AddNewPromptModal'
 import PromptCard from './PromptCard'
 import ProviderSelect from './ProviderSelect'
@@ -71,18 +71,27 @@ function OptionsPage(props: { theme: Theme; onThemeChange: (theme: Theme) => voi
       <nav className="flex flex-row justify-between items-center mt-5 px-2">
         <div className="flex flex-row items-center gap-2">
           <img src={logo} className="w-10 h-10 rounded-lg" />
-          <span className="font-semibold">SciBard(v{getExtensionVersion()})</span>
+          <span className="font-semibold">
+            {AppName} (v
+            {getExtensionVersion()})
+          </span>{' '}
         </div>
         <div className="flex flex-row gap-3">
+          <a href="https://twitter.com/ishandutta2007" target="_blank" rel="noreferrer">
+            Twitter
+          </a>
+          <a href="https://discord.gg/sXdRc6ZH" target="_blank" rel="noreferrer">
+            Discord
+          </a>
           <a
-            href="https://github.com/ishandutta2007/chatgpt-scientific-publications-extension/issues"
+            href="https://github.com/ishandutta2007/bard-scientific-publications-extension/issues"
             target="_blank"
             rel="noreferrer"
           >
             Feedback
           </a>
           <a
-            href="https://github.com/ishandutta2007/chatgpt-scientific-publications-extension"
+            href="https://github.com/ishandutta2007/bard-scientific-publications-extension"
             target="_blank"
             rel="noreferrer"
           >

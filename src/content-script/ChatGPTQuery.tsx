@@ -270,7 +270,7 @@ function ChatGPTQuery(props: Props) {
     )
   }
 
-  return <p className="text-[#b6b8ba] animate-pulse">Waiting for BARD summarize...</p>
+  return <p className="text-[#b6b8ba] animate-pulse">Waiting for BARD to summarize...</p>
 }
 
 export default memo(ChatGPTQuery)
