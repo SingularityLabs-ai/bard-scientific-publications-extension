@@ -101,7 +101,8 @@ export class BARDProvider implements Provider {
       }
     }
     const { requestParams, contextIds } = this.conversationContext
-    console.debug('request ids:', contextIds)
+    console.debug('request contextIds:', contextIds)
+    console.debug('request requestParams:', requestParams)
     const resp = await ofetch(
       'https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate',
       {
@@ -123,8 +124,8 @@ export class BARDProvider implements Provider {
       },
     )
     const { text, ids } = await this.parseBartResponse(resp)
-    console.debug('text:', text)
-    console.debug('response ids:', ids)
+    console.debug('response text:', text)
+    console.debug('response contextIds:', ids)
     this.conversationContext.contextIds = ids
 
     if (text) {
