@@ -235,8 +235,8 @@ function ChatGPTQuery(props: Props) {
     return (
       <p>
         Please login and pass Cloudflare check at{' '}
-        <a href="https://chat.openai.com" target="_blank" rel="noreferrer">
-          chat.openai.com
+        <a href="https://bard.google.com" target="_blank" rel="noreferrer">
+          https://bard.google.com/
         </a>
         {retry > 0 &&
           (() => {
@@ -244,7 +244,7 @@ function ChatGPTQuery(props: Props) {
               return (
                 <span className="block mt-2">
                   Still not working? Follow{' '}
-                  <a href="https://github.com/wong2/chat-gpt-google-extension#troubleshooting">
+                  <a href="https://github.com/ishandutta2007/bard-scientific-publications-extension#troubleshooting">
                     Brave Troubleshooting
                   </a>
                 </span>
