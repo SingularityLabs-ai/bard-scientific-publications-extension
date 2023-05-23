@@ -3,16 +3,40 @@ import { ofetch } from 'ofetch'
 
 import { ConversationContext, GenerateAnswerParams, Provider } from '../types'
 
-async function request(token: string, method: string, path: string, data?: unknown) {
-  return fetch(`https://chat.openai.com/backend-api${path}`, {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-    body: data === undefined ? undefined : JSON.stringify(data),
-  })
+export enum ErrorCode {
+  CONVERSATION_LIMIT = 'CONVERSATION_LIMIT',
+  UNKOWN_ERROR = 'UNKOWN_ERROR',
+  CHATGPT_CLOUDFLARE = 'CHATGPT_CLOUDFLARE',
+  CHATGPT_UNAUTHORIZED = 'CHATGPT_UNAUTHORIZED',
+  GPT4_MODEL_WAITLIST = 'GPT4_MODEL_WAITLIST',
+  BING_UNAUTHORIZED = 'BING_UNAUTHORIZED',
+  BING_FORBIDDEN = 'BING_FORBIDDEN',
+  API_KEY_NOT_SET = 'API_KEY_NOT_SET',
+  BARD_EMPTY_RESPONSE = 'BARD_EMPTY_RESPONSE',
+  MISSING_POE_HOST_PERMISSION = 'MISSING_POE_HOST_PERMISSION',
+  POE_UNAUTHORIZED = 'POE_UNAUTHORIZED',
+  MISSING_HOST_PERMISSION = 'MISSING_HOST_PERMISSION',
+  XUNFEI_UNAUTHORIZED = 'XUNFEI_UNAUTHORIZED',
 }
+
+export class ChatError extends Error {
+  code: ErrorCode
+  constructor(message: string, code: ErrorCode) {
+    super(message)
+    this.code = code
+  }
+}
+
+// async function request(token: string, method: string, path: string, data?: unknown) {
+//   return fetch(`https://chat.openai.com/backend-api${path}`, {
+//     method,
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Authorization: `Bearer ${token}`,
+//     },
+//     body: data === undefined ? undefined : JSON.stringify(data),
+//   })
+// }
 
 export async function sendMessageFeedbackBard(data: unknown) {
   console.log('TODO: Currently it is dummy, no feedback is actually sent')
@@ -32,21 +56,21 @@ const KEY_ACCESS_TOKEN = 'accessToken'
 
 const cache = new ExpiryMap(10 * 1000)
 
-export async function getBardAccessToken(): Promise<string> {
-  if (cache.get(KEY_ACCESS_TOKEN)) {
-    return cache.get(KEY_ACCESS_TOKEN)
-  }
-  const resp = await fetch('https://chat.openai.com/api/auth/session')
-  if (resp.status === 403) {
-    throw new Error('CLOUDFLARE')
-  }
-  const data = await resp.json().catch(() => ({}))
-  if (!data.accessToken) {
-    throw new Error('UNAUTHORIZED')
-  }
-  cache.set(KEY_ACCESS_TOKEN, data.accessToken)
-  return data.accessToken
-}
+// export async function getBardAccessToken(): Promise<string> {
+//   if (cache.get(KEY_ACCESS_TOKEN)) {
+//     return cache.get(KEY_ACCESS_TOKEN)
+//   }
+//   const resp = await fetch('https://chat.openai.com/api/auth/session')
+//   if (resp.status === 403) {
+//     throw new Error('CLOUDFLARE')
+//   }
+//   const data = await resp.json().catch(() => ({}))
+//   if (!data.accessToken) {
+//     throw new Error('UNAUTHORIZED')
+//   }
+//   cache.set(KEY_ACCESS_TOKEN, data.accessToken)
+//   return data.accessToken
+// }
 
 export class BARDProvider implements Provider {
   private conversationContext?: ConversationContext
@@ -72,7 +96,10 @@ export class BARDProvider implements Provider {
     const data = JSON.parse(resp.split('\n')[3])
     const payload = JSON.parse(data[0][2])
     if (!payload) {
-      throw new ChatError('Failed to access Bard', ErrorCode.BARD_EMPTY_RESPONSE)
+      throw new ChatError(
+        'Failed to access Bard, make sure you are loggedin at https://bard.google.com',
+        ErrorCode.BARD_EMPTY_RESPONSE,
+      )
     }
     const text = payload[0][0]
     return {
