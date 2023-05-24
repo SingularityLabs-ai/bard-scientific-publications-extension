@@ -97,7 +97,7 @@ export class BARDProvider implements Provider {
     const payload = JSON.parse(data[0][2])
     if (!payload) {
       throw new ChatError(
-        'Failed to access Bard, make sure you are loggedin at https://bard.google.com',
+        'Failed to access Bard, make sure you are logged in at https://bard.google.com',
         ErrorCode.BARD_EMPTY_RESPONSE,
       )
     }
