@@ -101,7 +101,9 @@ export class BARDProvider implements Provider {
         ErrorCode.BARD_EMPTY_RESPONSE,
       )
     }
-    const text = payload[0][0]
+    console.debug('bard response payload', payload)
+
+    const text = payload[4][0][1][0] as string
     return {
       text,
       ids: [...payload[1], payload[4][0][0]] as [string, string, string],

@@ -79,7 +79,7 @@ function OptionsPage(props: { theme: Theme; onThemeChange: (theme: Theme) => voi
           <a href="https://twitter.com/ishandutta2007" target="_blank" rel="noreferrer">
             Twitter
           </a>
-          <a href="https://discord.gg/sXdRc6ZH" target="_blank" rel="noreferrer">
+          <a href="https://discord.gg/jc4xtF58Ve" target="_blank" rel="noreferrer">
             Discord
           </a>
           <a
