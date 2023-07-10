@@ -83,14 +83,14 @@ function OptionsPage(props: { theme: Theme; onThemeChange: (theme: Theme) => voi
             Discord
           </a>
           <a
-            href="https://github.com/ishandutta2007/bard-scientific-publications-extension/issues"
+            href="https://github.com/SingularityLabs-ai/bard-scientific-publications-extension/issues"
             target="_blank"
             rel="noreferrer"
           >
             Feedback
           </a>
           <a
-            href="https://github.com/ishandutta2007/bard-scientific-publications-extension"
+            href="https://github.com/SingularityLabs-ai/bard-scientific-publications-extension"
             target="_blank"
             rel="noreferrer"
           >
