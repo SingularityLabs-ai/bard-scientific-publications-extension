@@ -5,6 +5,8 @@ import { ChatGPTProvider, getChatGPTAccessToken, sendMessageFeedback } from './p
 import { OpenAIProvider } from './providers/openai'
 import { ConversationContext, Provider } from './types'
 
+const SCIBARD_UNINSTALL_TYPEFORM_URL = 'https://survey.typeform.com/to/IksBBwlR'
+
 async function generateAnswers(
   port: Browser.Runtime.Port,
   question: string,
@@ -88,3 +90,5 @@ Browser.runtime.onInstalled.addListener((details) => {
     Browser.runtime.openOptionsPage()
   }
 })
+
+Browser.runtime.setUninstallURL(SCIBARD_UNINSTALL_TYPEFORM_URL)
