@@ -1,7 +1,7 @@
 import Browser from 'webextension-polyfill'
 import { Theme } from './config'
 
-export const AppName = 'SciBard'
+export const AppName = 'SciGemini'
 
 export function detectSystemColorScheme() {
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {

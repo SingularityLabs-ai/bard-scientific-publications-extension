@@ -12,7 +12,7 @@ export enum ErrorCode {
   BING_UNAUTHORIZED = 'BING_UNAUTHORIZED',
   BING_FORBIDDEN = 'BING_FORBIDDEN',
   API_KEY_NOT_SET = 'API_KEY_NOT_SET',
-  BARD_EMPTY_RESPONSE = 'BARD_EMPTY_RESPONSE',
+  GEMINI_EMPTY_RESPONSE = 'GEMINI_EMPTY_RESPONSE',
   MISSING_POE_HOST_PERMISSION = 'MISSING_POE_HOST_PERMISSION',
   POE_UNAUTHORIZED = 'POE_UNAUTHORIZED',
   MISSING_HOST_PERMISSION = 'MISSING_HOST_PERMISSION',
@@ -72,7 +72,7 @@ const cache = new ExpiryMap(10 * 1000)
 //   return data.accessToken
 // }
 
-export class BARDProvider implements Provider {
+export class GEMINIProvider implements Provider {
   private conversationContext?: ConversationContext
 
   constructor(private token: string) {
@@ -98,7 +98,7 @@ export class BARDProvider implements Provider {
     if (!payload) {
       throw new ChatError(
         'Failed to access Bard, make sure you are logged in at https://gemini.google.com',
-        ErrorCode.BARD_EMPTY_RESPONSE,
+        ErrorCode.GEMINI_EMPTY_RESPONSE,
       )
     }
     console.debug('bard response payload', payload)

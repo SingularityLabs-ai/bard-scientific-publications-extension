@@ -172,7 +172,7 @@ function ChatGPTQuery(props: Props) {
     return (
       <div className="markdown-body gpt-markdown" id="gpt-answer" dir="auto">
         <div className="gpt-header">
-          <span className="font-bold">SciBard</span>
+          <span className="font-bold">SciGemini</span>
           <span className="cursor-pointer leading-[0]" onClick={openOptionsPage}>
             <GearIcon size={14} />
           </span>
@@ -194,7 +194,7 @@ function ChatGPTQuery(props: Props) {
               }`}</div>
               {reError ? (
                 <p>
-                  Failed to load response from BARD:
+                  Failed to load response from GEMINI:
                   <span className="break-all block">{reError}</span>
                 </p>
               ) : requestion.index < requestionList.length - 1 ? (
@@ -252,7 +252,7 @@ function ChatGPTQuery(props: Props) {
             } else {
               return (
                 <span className="italic block mt-2 text-xs">
-                  Google BARD requires passing a security check every once in a while.
+                  Google GEMINI requires passing a security check every once in a while.
                 </span>
               )
             }
@@ -263,13 +263,13 @@ function ChatGPTQuery(props: Props) {
   if (error) {
     return (
       <p>
-        Failed to load response from BARD:
+        Failed to load response from GEMINI:
         <span className="break-all block">{error}</span>
       </p>
     )
   }
 
-  return <p className="text-[#b6b8ba] animate-pulse">Waiting for BARD to summarize...</p>
+  return <p className="text-[#b6b8ba] animate-pulse">Waiting for GEMINI to summarize...</p>
 }
 
 export default memo(ChatGPTQuery)

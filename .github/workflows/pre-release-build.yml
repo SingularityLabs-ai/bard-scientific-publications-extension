@@ -22,10 +22,10 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: Chromium_BARD_Extension_Build_${{ steps.current-time.outputs.formattedTime }}
+          name: Chromium_GEMINI_Extension_Build_${{ steps.current-time.outputs.formattedTime }}
           path: build/chromium/*
 
       - uses: actions/upload-artifact@v3
         with:
-          name: Firefox_BARD_Extension_Build_${{ steps.current-time.outputs.formattedTime }}
+          name: Firefox_GEMINI_Extension_Build_${{ steps.current-time.outputs.formattedTime }}
           path: build/firefox/*

@@ -1,5 +1,5 @@
 
-<h1 align="center">SciBard</h1>
+<h1 align="center">SciGemini</h1>
 
 <div align="center">
 
@@ -15,7 +15,7 @@
     <img src="./src/logo.png" width="150">
 </p>
 
-<h1 align="center">SciBard</h1>
+<h1 align="center">SciGemini</h1>
 
 <div align="center">
 

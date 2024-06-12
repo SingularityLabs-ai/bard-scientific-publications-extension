@@ -1,11 +1,11 @@
 import Browser from 'webextension-polyfill'
 import { getProviderConfigs, ProviderType } from '../config'
-import { BARDProvider, sendMessageFeedbackBard } from './providers/bard'
+import { GEMINIProvider, sendMessageFeedbackBard } from './providers/bard'
 import { ChatGPTProvider, getChatGPTAccessToken, sendMessageFeedback } from './providers/chatgpt'
 import { OpenAIProvider } from './providers/openai'
 import { ConversationContext, Provider } from './types'
 
-const SCIBARD_UNINSTALL_TYPEFORM_URL = 'https://survey.typeform.com/to/IksBBwlR'
+const SCIGEMINI_UNINSTALL_TYPEFORM_URL = 'https://survey.typeform.com/to/IksBBwlR'
 
 async function generateAnswers(
   port: Browser.Runtime.Port,
@@ -17,8 +17,8 @@ async function generateAnswers(
   const providerConfigs = await getProviderConfigs()
 
   let provider: Provider
-  if (providerConfigs.provider === ProviderType.BARD) {
-    provider = new BARDProvider()
+  if (providerConfigs.provider === ProviderType.GEMINI) {
+    provider = new GEMINIProvider()
   } else if (providerConfigs.provider === ProviderType.ChatGPT) {
     const token = await getChatGPTAccessToken()
     provider = new ChatGPTProvider(token)
@@ -47,7 +47,7 @@ async function generateAnswers(
     },
     conversationId: conversationId, //used for chatGPT
     parentMessageId: parentMessageId, //used for chatGPT
-    conversationContext: conversationContext, //used for BARD
+    conversationContext: conversationContext, //used for GEMINI
   })
 }
 
@@ -91,4 +91,4 @@ Browser.runtime.onInstalled.addListener((details) => {
   }
 })
 
-Browser.runtime.setUninstallURL(SCIBARD_UNINSTALL_TYPEFORM_URL)
+Browser.runtime.setUninstallURL(SCIGEMINI_UNINSTALL_TYPEFORM_URL)
