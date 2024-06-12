@@ -1,8 +1,8 @@
 {
-  "appName": {
-    "message": "SciBard"
-  },
-  "appDesc": {
-    "message": "BARD로 Arxiv논문의 인사이트를 제공합니다."
-  }
+    "appName": {
+        "message": "SciGemini - Gemini™ for Scientists"
+    },
+    "appDesc": {
+        "message": "Google™ Gemini™를 사용하여 저널 웹사이트의 과학 논문을 요약하고 핵심 통찰력을 제공합니다."
+    }
 }

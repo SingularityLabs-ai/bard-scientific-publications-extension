@@ -1,8 +1,8 @@
 {
-  "appName": {
-    "message": "SciBard"
-  },
-  "appDesc": {
-    "message": "Загальний опис та важливі враження для будь-якої статті"
-  }
+    "appName": {
+        "message": "SciGemini - Gemini™ для вчених"
+    },
+    "appDesc": {
+        "message": "Узагальніть наукову статтю на веб-сайтах журналу та надайте ключові ідеї за допомогою Google™ Gemini™"
+    }
 }

@@ -1,8 +1,8 @@
 {
-  "appName": {
-    "message": "SciBard"
-  },
-  "appDesc": {
-    "message": "Fassen Sie ein Papier zusammen und liefern Sie wichtige Erkenntnisse."
-  }
+    "appName": {
+        "message": "SciGemini - Gemini™ für Wissenschaftler"
+    },
+    "appDesc": {
+        "message": "Fassen Sie einen wissenschaftlichen Artikel auf den Websites von Fachzeitschriften zusammen und liefern Sie mithilfe von Google™ Gemini™ wichtige Erkenntnisse"
+    }
 }

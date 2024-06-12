@@ -1,8 +1,8 @@
 {
-  "appName": {
-    "message": "SciBard"
-  },
-  "appDesc": {
-    "message": "概括并提供任何 文章的关键见解。"
-  }
+    "appName": {
+        "message": "SciGemini - Gemini™ for Scientists"
+    },
+    "appDesc": {
+        "message": "使用 Google™ Gemini™ 总结期刊网站上的科学论文并提供关键见解"
+    }
 }

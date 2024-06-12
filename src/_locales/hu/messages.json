@@ -1,8 +1,8 @@
 {
-  "appName": {
-    "message": "SciBard"
-  },
-  "appDesc": {
-    "message": "Összegzés és kulcsfontosságú betekintések bármely cikkre"
-  }
+    "appName": {
+        "message": "SciGemini - Gemini™ for Scientists"
+    },
+    "appDesc": {
+        "message": "Összefoglaljon egy tudományos cikket a folyóirat webhelyeiről, és nyújtson betekintést a Google™ Gemini™ segítségével"
+    }
 }
