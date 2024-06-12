@@ -1,6 +1,6 @@
 import Browser from 'webextension-polyfill'
 import { getProviderConfigs, ProviderType } from '../config'
-import { GEMINIProvider, sendMessageFeedbackBard } from './providers/bard'
+import { GEMINIProvider, sendMessageFeedbackGemini } from './providers/bard'
 import { ChatGPTProvider, getChatGPTAccessToken, sendMessageFeedback } from './providers/chatgpt'
 import { OpenAIProvider } from './providers/openai'
 import { ConversationContext, Provider } from './types'
@@ -76,7 +76,7 @@ Browser.runtime.onMessage.addListener(async (message) => {
       const token = await getChatGPTAccessToken()
       await sendMessageFeedback(token, message.data)
     } else {
-      await sendMessageFeedbackBard(message.data)
+      await sendMessageFeedbackGemini(message.data)
     }
   } else if (message.type === 'OPEN_OPTIONS_PAGE') {
     Browser.runtime.openOptionsPage()

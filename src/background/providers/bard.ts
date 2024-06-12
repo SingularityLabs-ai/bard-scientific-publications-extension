@@ -38,7 +38,7 @@ export class ChatError extends Error {
 //   })
 // }
 
-export async function sendMessageFeedbackBard(data: unknown) {
+export async function sendMessageFeedbackGemini(data: unknown) {
   console.log('TODO: Currently it is dummy, no feedback is actually sent')
   console.log('data:', data)
   // await request(token, 'POST', '/conversation/message_feedback', data);
